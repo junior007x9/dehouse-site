@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,91 +14,198 @@
                 extend: {
                     colors: {
                         primary: '#10B981',
-                        darkBg: '#1E1E1E',
-                        lightBg: '#F8F9FA'
+                        primaryDark: '#059669',
+                        darkBg: '#111827',
+                        lightBg: '#F9FAFB'
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)'
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: radial-gradient(circle at top right, #e0f2fe 0%, #f0fdf4 40%, #ffffff 100%); }
     </style>
 </head>
-<body class="bg-lightBg text-gray-800 antialiased">
+<body class="bg-lightBg text-gray-800 antialiased selection:bg-primary selection:text-white">
 
-    <nav class="bg-darkBg text-white py-6 shadow-md">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <i class="fas fa-shopping-cart text-primary text-2xl"></i>
-                <span class="text-xl font-bold tracking-tight">Dehouse Market</span>
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-all duration-300 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-300">
+                    <i class="fas fa-shopping-cart text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-black tracking-tight text-gray-900 hidden sm:block">Dehouse</span>
             </a>
-            <a href="index.html" class="text-sm font-medium hover:text-primary transition-colors">Voltar ao Início</a>
+            
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-primary transition-colors hidden md:block">
+                    <i class="fas fa-arrow-left mr-1"></i> Voltar ao Início
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.detech.dehousemarket&hl=pt_BR" target="_blank" rel="noopener noreferrer" class="bg-gray-900 hover:bg-black text-white text-sm font-bold py-2 px-5 rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fab fa-google-play text-primary"></i> Baixar App
+                </a>
+            </div>
         </div>
     </nav>
 
-    <header class="bg-primary/10 py-12 border-b border-primary/20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Política de Privacidade</h1>
-            <p class="text-gray-600">Última atualização: <span class="font-semibold">Maio de 2026</span></p>
+    <header class="hero-gradient pt-32 pb-16 border-b border-gray-100">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <div class="inline-flex items-center gap-2 bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 text-sm">
+                <i class="fas fa-shield-alt"></i> Transparência e Segurança
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Política de Privacidade</h1>
+            <p class="text-gray-500 text-lg">Última atualização: <span class="font-semibold text-gray-700">Maio de 2026</span></p>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-gray-700 space-y-8 leading-relaxed">
+    <main class="container mx-auto px-6 py-12 max-w-4xl -mt-8 relative z-10">
+        <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-soft border border-gray-100 text-gray-600 space-y-10 leading-relaxed text-lg">
             
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">1. Introdução</h2>
-                <p>O <strong>Dehouse Market</strong> ("nós", "nosso" ou "aplicação") valoriza e respeita a sua privacidade. Esta Política de Privacidade explica como recolhemos, usamos, partilhamos e protegemos os seus dados ao utilizar a nossa aplicação móvel. Ao utilizar o Dehouse Market, concorda com as práticas descritas neste documento.</p>
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-primary/10 transition-colors">
+                        <i class="fas fa-info-circle text-gray-400 group-hover:text-primary transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">1. Introdução</h2>
+                </div>
+                <p class="pl-13">O <strong>Dehouse Market</strong> ("nós", "nosso" ou "aplicação") valoriza e respeita a sua privacidade. Esta Política de Privacidade explica como recolhemos, usamos, partilhamos e protegemos os seus dados ao utilizar a nossa aplicação móvel. Ao utilizar o Dehouse Market, concorda com as práticas descritas neste documento.</p>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">2. Permissões Sensíveis e Acesso a Dados</h2>
+            <hr class="border-gray-100">
+
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-blue-500/10 transition-colors">
+                        <i class="fas fa-mobile-alt text-gray-400 group-hover:text-blue-500 transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">2. Permissões Sensíveis e Acesso a Dados</h2>
+                </div>
                 <p class="mb-4">Para fornecer a funcionalidade principal da aplicação (gestão inteligente de compras), solicitamos o acesso a algumas funcionalidades do seu telemóvel:</p>
-                <ul class="list-disc pl-6 space-y-4">
-                    <li><strong>Câmara:</strong> Utilizamos a câmara exclusivamente para escanear códigos de barras de produtos e efetuar a leitura de Notas Fiscais/Recibos. Nenhuma fotografia ou gravação de vídeo é partilhada ou vendida a terceiros. O processamento das imagens ocorre localmente ou de forma encriptada.</li>
-                    <li><strong>Microfone:</strong> Acesso ao microfone é solicitado para permitir o uso de Comandos de Voz (Voice-to-Text), ajudando o utilizador a adicionar produtos à lista de forma rápida. O áudio é processado através do motor de reconhecimento de voz nativo do dispositivo.</li>
-                    <li><strong>Armazenamento Local e Cloud:</strong> Os seus dados de compras, histórico e orçamentos são guardados localmente no seu dispositivo e sincronizados com a nossa base de dados (Turso) apenas para permitir a partilha em tempo real com a sua "Família" (grupo fechado na aplicação).</li>
-                </ul>
+                
+                <div class="space-y-4 mt-6">
+                    <div class="bg-lightBg p-5 rounded-2xl border border-gray-100 flex gap-4 items-start">
+                        <i class="fas fa-camera text-primary text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-gray-900 block mb-1">Câmara:</strong>
+                            <p class="text-sm">Utilizamos a câmara exclusivamente para escanear códigos de barras de produtos e efetuar a leitura de Notas Fiscais/Recibos. Nenhuma fotografia ou gravação de vídeo é partilhada ou vendida a terceiros. O processamento das imagens ocorre localmente ou de forma encriptada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-lightBg p-5 rounded-2xl border border-gray-100 flex gap-4 items-start">
+                        <i class="fas fa-microphone text-blue-500 text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-gray-900 block mb-1">Microfone:</strong>
+                            <p class="text-sm">Acesso ao microfone é solicitado para permitir o uso de Comandos de Voz (Voice-to-Text), ajudando o utilizador a adicionar produtos à lista de forma rápida. O áudio é processado através do motor de reconhecimento de voz nativo do dispositivo.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-lightBg p-5 rounded-2xl border border-gray-100 flex gap-4 items-start">
+                        <i class="fas fa-cloud text-accent text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-gray-900 block mb-1">Armazenamento Local e Cloud:</strong>
+                            <p class="text-sm">Os seus dados de compras, histórico e orçamentos são guardados localmente no seu dispositivo e sincronizados com a nossa base de dados (Turso) apenas para permitir a partilha em tempo real com a sua "Família" (grupo fechado na aplicação).</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">3. Publicidade e Serviços de Terceiros (Google AdMob)</h2>
+            <hr class="border-gray-100">
+
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-yellow-500/10 transition-colors">
+                        <i class="fas fa-ad text-gray-400 group-hover:text-yellow-500 transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">3. Publicidade e Serviços de Terceiros</h2>
+                </div>
                 <p class="mb-4">A aplicação é gratuita e sustentada através da exibição de anúncios. Para isso, utilizamos o <strong>Google AdMob</strong>.</p>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li>A Google pode utilizar o ID de publicidade do seu dispositivo e outros dados (como endereço IP e dados de utilização) para apresentar anúncios personalizados ou não personalizados.</li>
-                    <li>O processamento destes dados é regido pela <a href="https://policies.google.com/privacy" target="_blank" class="text-primary font-semibold hover:underline">Política de Privacidade da Google</a>.</li>
+                <ul class="list-none space-y-3">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-primary mt-1.5 text-sm"></i>
+                        <span>A Google pode utilizar o ID de publicidade do seu dispositivo e outros dados (como endereço IP e dados de utilização) para apresentar anúncios personalizados ou não personalizados.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-primary mt-1.5 text-sm"></i>
+                        <span>O processamento destes dados é regido pela <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline">Política de Privacidade da Google</a>.</span>
+                    </li>
                 </ul>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">4. Retenção e Exclusão de Dados</h2>
-                <p>O utilizador tem controlo total sobre os seus dados. Na aba "Ajustes" da aplicação, o utilizador pode, a qualquer momento, utilizar o botão <strong>"Zerar Histórico e Gaveta"</strong>. Esta ação elimina imediatamente e de forma irreversível todos os dados de compras, notas fiscais e histórico guardados no dispositivo e associados à conta da família na nossa base de dados.</p>
+            <hr class="border-gray-100">
+
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-red-500/10 transition-colors">
+                        <i class="fas fa-trash-alt text-gray-400 group-hover:text-red-500 transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">4. Retenção e Exclusão de Dados</h2>
+                </div>
+                <p>O utilizador tem controlo total sobre os seus dados. Na aba "Ajustes" da aplicação, o utilizador pode, a qualquer momento, utilizar o botão <strong class="text-gray-900 bg-gray-100 px-2 py-0.5 rounded">Zerar Histórico e Gaveta</strong>. Esta ação elimina imediatamente e de forma irreversível todos os dados de compras, notas fiscais e histórico guardados no dispositivo e associados à conta da família na nossa base de dados.</p>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">5. Partilha de Dados</h2>
-                <p>Não vendemos, alugamos nem comercializamos os seus dados pessoais. As informações da sua lista de compras são partilhadas exclusivamente com os utilizadores que possuam o seu <strong>"Código da Família"</strong> e respetiva palavra-passe. O utilizador é responsável por manter este código seguro.</p>
+            <hr class="border-gray-100">
+
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-primary/10 transition-colors">
+                        <i class="fas fa-users text-gray-400 group-hover:text-primary transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">5. Partilha de Dados</h2>
+                </div>
+                <p>Não vendemos, alugamos nem comercializamos os seus dados pessoais. As informações da sua lista de compras são partilhadas exclusivamente com os utilizadores que possuam o seu <strong class="text-gray-900 border-b-2 border-primary">Código da Família</strong> e respetiva palavra-passe. O utilizador é responsável por manter este código seguro.</p>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-primary pl-4">6. Alterações a esta Política</h2>
+            <hr class="border-gray-100">
+
+            <section class="group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100 group-hover:bg-purple-500/10 transition-colors">
+                        <i class="fas fa-sync text-gray-400 group-hover:text-purple-500 transition-colors text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">6. Alterações a esta Política</h2>
+                </div>
                 <p>Podemos atualizar a nossa Política de Privacidade ocasionalmente. Recomendamos que reveja esta página periodicamente para ter conhecimento de quaisquer alterações. As modificações entram em vigor imediatamente após a sua publicação nesta página.</p>
             </section>
 
-            <section class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">7. Contacto</h2>
-                <p>Se tiver alguma dúvida ou sugestão sobre a nossa Política de Privacidade, não hesite em contactar-nos através do e-mail:</p>
-                <a href="mailto:suporte@dehousemarket.com" class="text-primary font-bold hover:underline mt-2 inline-block">suporte@dehousemarket.com</a>
+            <section class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-3xl border border-gray-700 text-white mt-12 shadow-lg relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-envelope text-primary text-2xl"></i>
+                        <h2 class="text-2xl font-bold">7. Contacto</h2>
+                    </div>
+                    <p class="text-gray-300 mb-4">Se tiver alguma dúvida ou sugestão sobre a nossa Política de Privacidade, não hesite em contactar-nos através do e-mail:</p>
+                    <a href="mailto:suporte@dehousemarket.com" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 border border-white/10">
+                        <i class="fas fa-paper-plane text-primary"></i> suporte@dehousemarket.com
+                    </a>
+                </div>
             </section>
 
         </div>
     </main>
 
-    <footer class="bg-darkBg text-gray-400 py-8 text-center border-t border-gray-800">
-        <div class="container mx-auto px-6">
-            <p>© 2026 Dehouse Market. Todos os direitos reservados.</p>
+    <footer class="bg-white py-12 border-t border-gray-100 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><i class="fas fa-shopping-cart text-white text-sm"></i></div>
+                <span class="text-xl font-black text-gray-900">Dehouse Market</span>
+            </div>
+            <p class="text-gray-500 mb-8 font-medium">Sua inteligência financeira no supermercado.</p>
+            
+            <div class="flex justify-center gap-6 text-gray-400 mb-8">
+                <a href="https://www.instagram.com/dehousemarket?igsh=MXZldGgzM3Q1NjZjeA==" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors duration-300 text-3xl"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-gray-400">
+                <p>© 2026 Dehouse Market. Produzido por Junior e Julia (CEO AARTI ESTUDIO)</p>
+                <span class="hidden md:inline">•</span>
+                <a href="index.html" class="hover:text-primary transition-colors font-medium">Voltar à Página Inicial</a>
+            </div>
         </div>
     </footer>
 
