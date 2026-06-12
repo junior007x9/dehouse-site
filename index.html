@@ -38,34 +38,81 @@
         /* Fundo principal mais suave */
         .hero-gradient { background: radial-gradient(circle at top right, #e0f2fe 0%, #f0fdf4 40%, #ffffff 100%); }
         
+        /* Efeito de Levitação */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
         .animate-float { animation: float 6s ease-in-out infinite; }
         
+        /* Efeito de Brilho Pulsante */
         @keyframes pulseGlow {
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.05); }
         }
         .animate-glow { animation: pulseGlow 4s ease-in-out infinite; }
         
+        /* Animação de Salto Suave */
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
             50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
         }
         .animate-bounce-slow { animation: bounce-slow 3s infinite; }
+
+        /* --- NOVO: Definição do Efeito 3D para o Nome da Marca --- */
+        .brand-3d {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff; /* Base branca para o degradê */
+            
+            /* Degradê de Cima para Baixo (Verde Esmeralda) */
+            background: linear-gradient(to bottom, #f0fdf4 0%, #10B981 100%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Múltiplas sombras em camadas para criar a profundidade 3D */
+            text-shadow: 
+                0px 1px 0px #059669,    /* primaryDark sutil */
+                0px 2px 0px #059669,
+                0px 3px 0px #059669,
+                0px 4px 0px #059669,
+                0px 5px 0px rgba(0,0,0,0.1), /* sombra de oclusão sutil */
+                0px 6px 1px rgba(0,0,0,0.1), /* sombra de borda */
+                0px 0px 5px rgba(0,0,0,0.1), /* brilho interno sutil */
+                0px 10px 10px rgba(0,0,0,0.2), /* sombra projetada suave (distância) */
+                0px 20px 20px rgba(0,0,0,0.15); /* sombra de profundidade extra */
+
+            /* Leve distorção de perspectiva para "levantar" o texto */
+            transform: perspective(500px) rotateX(10deg);
+        }
+
+        /* Efeito 3D Sutil para o Menu de Navegação */
+        .brand-3d-nav {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: linear-gradient(to bottom, #f9fafb 0%, #059669 100%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 
+                0px 1px 0px #10B981, 
+                0px 2px 1px rgba(0,0,0,0.1),
+                0px 4px 6px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
-<body class="bg-lightBg text-gray-800 antialiased">
+<body class="bg-lightBg text-gray-800 antialiasedselection:bg-primary selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-all duration-300 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 group cursor-pointer" onclick="window.scrollTo(0,0)">
                 <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-300">
                     <i class="fas fa-shopping-cart text-white text-xl"></i>
                 </div>
-                <span class="text-2xl font-black tracking-tight text-gray-900 hidden sm:block">Dehouse</span>
+                <span class="text-xl font-black tracking-tight brand-3d-nav hidden sm:block">DEHOUSE MARKET</span>
             </div>
             <div>
                 <a href="https://play.google.com/store/apps/details?id=com.detech.dehousemarket&hl=pt_BR" target="_blank" rel="noopener noreferrer" class="bg-gray-900 hover:bg-black text-white text-sm font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
@@ -75,7 +122,7 @@
         </div>
     </nav>
 
-    <section class="hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 relative overflow-hidden">
+    <section class="hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 relative overflow-hidden border-b border-gray-100">
         <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
             
             <div class="lg:w-1/2 text-center lg:text-left z-10" data-aos="fade-right" data-aos-duration="1000">
@@ -88,7 +135,11 @@
                     <span class="text-sm font-semibold text-gray-700">Novidade: Lançamento Oficial na Play Store</span>
                 </div>
 
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6">
+                <div class="mb-6" data-aos="zoom-out" data-aos-delay="300">
+                    <span class="brand-3d text-5xl md:text-7xl lg:text-8xl block leading-none">DEHOUSE MARKET</span>
+                </div>
+
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.2] mb-6 tracking-tight">
                     Assuma o controle do <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">orçamento familiar.</span>
                 </h1>
                 
@@ -107,9 +158,9 @@
 
                     <div class="flex items-center gap-3">
                         <div class="flex -space-x-2">
-                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=1" alt="user"></div>
-                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=2" alt="user"></div>
-                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=3" alt="user"></div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=1" alt="user avatar"></div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=2" alt="user avatar"></div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=3" alt="user avatar"></div>
                         </div>
                         <div class="text-left">
                             <div class="flex text-yellow-400 text-xs">
@@ -165,15 +216,15 @@
                                         </div>
                                     </div>
                                     <p class="text-[9px] text-right text-gray-400 mt-1">40% Utilizado</p>
-                                end</div>
+                                </div>
                             </div>
 
                             <div class="px-5 flex gap-3 mb-4">
-                                <div class="bg-primary flex-1 py-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-md shadow-primary/20">
+                                <div class="bg-primary flex-1 py-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-md shadow-primary/20 cursor-pointer">
                                     <i class="fas fa-barcode text-white"></i>
                                     <span class="text-[10px] text-white font-bold">Escanear</span>
                                 </div>
-                                <div class="bg-white border border-gray-200 flex-1 py-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-sm">
+                                <div class="bg-white border border-gray-200 flex-1 py-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-sm cursor-pointer">
                                     <i class="fas fa-keyboard text-gray-500"></i>
                                     <span class="text-[10px] text-gray-600 font-bold">Digitar</span>
                                 </div>
@@ -184,9 +235,9 @@
                                     CARRINHO <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-[10px]">2 itens</span>
                                 </p>
                                 
-                                <div class="flex justify-between items-center mb-4">
+                                <div class="flex justify-between items-center mb-4 border-b border-gray-100 pb-4">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center"><i class="fas fa-shopping-basket text-blue-500"></i></div>
+                                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100"><i class="fas fa-shopping-basket text-blue-500 text-xs"></i></div>
                                         <div>
                                             <p class="text-xs font-bold text-gray-800">Arroz 5kg</p>
                                             <p class="text-[10px] text-gray-500 mt-0.5">1 unidade</p>
@@ -197,7 +248,7 @@
 
                                 <div class="flex justify-between items-center">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center"><i class="fas fa-box text-orange-500"></i></div>
+                                        <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center border border-orange-100"><i class="fas fa-box text-orange-500 text-xs"></i></div>
                                         <div>
                                             <p class="text-xs font-bold text-gray-800">Feijão 1kg</p>
                                             <p class="text-[10px] text-gray-500 mt-0.5">2 unidades</p>
@@ -210,22 +261,22 @@
                     </div>
                 </div>
 
-                <div class="absolute -z-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-glow top-0 right-0"></div>
-                <div class="absolute -z-10 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-glow bottom-0 left-0" style="animation-delay: 2s;"></div>
+                <div class="absolute -z-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-glow top-0 right-0"></div>
+                <div class="absolute -z-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-glow bottom-0 left-0" style="animation-delay: 2s;"></div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-white relative">
+    <section id="funcionalidades" class="py-24 bg-white relative border-b border-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 max-w-2xl mx-auto" data-aos="fade-up">
                 <p class="text-primary font-bold tracking-wider text-sm uppercase mb-2">Por que usar o Dehouse?</p>
-                <h2 class="text-3xl lg:text-4xl font-black text-gray-900">A sua nova inteligência financeira.</h2>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">A sua nova inteligência financeira.</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:border-t-4 hover:border-t-primary transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-green-100">
                         <i class="fas fa-barcode text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Leitor Inteligente</h3>
@@ -233,7 +284,7 @@
                 </div>
 
                 <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:border-t-4 hover:border-t-accent transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-yellow-100">
                         <i class="fas fa-search-dollar text-yellow-500 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Detetive de Preços</h3>
@@ -241,7 +292,7 @@
                 </div>
 
                 <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:border-t-4 hover:border-t-blue-500 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-blue-100">
                         <i class="fas fa-users text-blue-500 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Família Conectada</h3>
@@ -249,7 +300,7 @@
                 </div>
 
                 <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:border-t-4 hover:border-t-red-500 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-red-100">
                         <i class="fas fa-chart-pie text-red-500 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Relatórios em PDF</h3>
@@ -259,31 +310,31 @@
         </div>
     </section>
 
-    <section class="py-24 bg-darkBg text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiLz48L3N2Zz4=')] opacity-50"></div>
+    <section id="sefaz" class="py-24 bg-darkBg text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNikiLz48L3N2Zz4=')] opacity-50"></div>
         
         <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-12">
             <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 font-semibold px-4 py-1.5 rounded-full mb-6 text-sm">
-                    <i class="fas fa-robot"></i> Importação Nativa Sefaz
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 font-semibold px-4 py-1.5 rounded-full mb-6 text-sm bg-blue-950/30">
+                    <i class="fas fa-robot text-xs"></i> Importação Nativa Sefaz
                 </div>
-                <h2 class="text-3xl lg:text-5xl font-black mb-6 leading-tight">Sua Gaveta Digital de<br>Notas Fiscais.</h2>
-                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                <h2 class="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight tracking-tight">Sua Gaveta Digital de<br>Notas Fiscais.</h2>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed max-w-xl">
                     Não perca horas digitando despesas. O nosso robô lê o QR Code ou a chave da Sefaz e puxa todos os produtos magicamente para o seu histórico.
                 </p>
                 
                 <div class="space-y-4">
-                    <div class="flex gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center"><i class="fas fa-shield-alt text-primary text-xl"></i></div>
+                    <div class="flex gap-4 items-center bg-gray-800/30 p-5 rounded-2xl border border-gray-700/50 hover:bg-gray-800/60 transition-colors cursor-default">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20"><i class="fas fa-shield-alt text-primary text-xl"></i></div>
                         <div>
-                            <p class="font-bold text-white">Privacidade Garantida</p>
-                            <p class="text-sm text-gray-400">Não exige senhas bancárias.</p>
+                            <p class="font-bold text-white text-lg">Privacidade Garantida</p>
+                            <p class="text-sm text-gray-400">Não exige senhas bancárias ou cartões reais.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center"><i class="fas fa-wifi text-accent text-xl"></i></div>
+                    <div class="flex gap-4 items-center bg-gray-800/30 p-5 rounded-2xl border border-gray-700/50 hover:bg-gray-800/60 transition-colors cursor-default">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center border border-accent/20"><i class="fas fa-cloud-download-alt text-accent text-xl"></i></div>
                         <div>
-                            <p class="font-bold text-white">Funciona Offline</p>
+                            <p class="font-bold text-white text-lg">Histórico Online e Offline</p>
                             <p class="text-sm text-gray-400">Guarde seu histórico com ou sem internet.</p>
                         </div>
                     </div>
@@ -291,17 +342,17 @@
             </div>
             
             <div class="lg:w-5/12 w-full relative" data-aos="fade-up" data-aos-duration="1200">
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[2rem] blur opacity-20"></div>
+                <div class="absolute -inset-2 bg-gradient-to-r from-primary to-blue-600 rounded-[2rem] blur opacity-10"></div>
                 
-                <div class="bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl relative">
-                    <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+                <div class="bg-gray-900/80 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-gray-700 shadow-2xl relative">
+                    <div class="flex items-center justify-between mb-8 border-b border-gray-700/50 pb-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center relative">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center relative border border-blue-900">
                                 <span class="absolute top-0 right-0 w-3 h-3 bg-blue-400 rounded-full animate-ping"></span>
                                 <i class="fas fa-receipt text-xl text-blue-400"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white">Nota Identificada</h4>
+                                <h4 class="font-bold text-white text-lg">Nota Identificada</h4>
                                 <p class="text-xs text-gray-400">Autenticada pela Sefaz • Hoje</p>
                             </div>
                         </div>
@@ -309,66 +360,68 @@
                     </div>
                     
                     <div class="space-y-3 mb-8">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="text-gray-300 text-sm">1x Arroz Agulhinha 5kg</span>
-                            <span class="font-bold text-white">R$ 25,90</span>
+                        <div class="flex justify-between items-center p-3.5 bg-gray-800/40 rounded-xl border border-gray-700/50 hover:bg-gray-800/70 transition-colors">
+                            <span class="text-gray-300 text-sm font-medium">1x Arroz Agulhinha 5kg</span>
+                            <span class="font-bold text-white text-sm">R$ 25,90</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="text-gray-300 text-sm">2x Feijão Carioca 1kg</span>
-                            <span class="font-bold text-white">R$ 14,50</span>
+                        <div class="flex justify-between items-center p-3.5 bg-gray-800/40 rounded-xl border border-gray-700/50 hover:bg-gray-800/70 transition-colors">
+                            <span class="text-gray-300 text-sm font-medium">2x Feijão Carioca 1kg</span>
+                            <span class="font-bold text-white text-sm">R$ 14,50</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="text-gray-300 text-sm">1x Leite Integral</span>
-                            <span class="font-bold text-white">R$ 5,20</span>
+                        <div class="flex justify-between items-center p-3.5 bg-gray-800/40 rounded-xl border border-gray-700/50 hover:bg-gray-800/70 transition-colors">
+                            <span class="text-gray-300 text-sm font-medium">1x Leite Integral</span>
+                            <span class="font-bold text-white text-sm">R$ 5,20</span>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-primary/20 to-primary/10 p-5 rounded-2xl flex justify-between items-center border border-primary/30">
-                        <span class="text-primary font-bold">Adicionado ao Histórico</span>
-                        <span class="text-2xl font-black text-white">R$ 45,60</span>
+                    <div class="bg-gradient-to-r from-primary/10 to-primary/5 p-5 rounded-2xl flex justify-between items-center border border-primary/30">
+                        <span class="text-primary font-bold text-lg">Adicionado ao Histórico</span>
+                        <span class="text-3xl font-black text-white">R$ 45,60</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-lightBg relative overflow-hidden">
+    <section id="download" class="py-24 bg-lightBg relative overflow-hidden border-b border-gray-100">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 -left-24 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute bottom-0 -left-24 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl opacity-50"></div>
         </div>
 
         <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
-            <h2 class="text-3xl lg:text-5xl font-black text-gray-900 mb-6">Mude a forma como você compra.</h2>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">Junte-se às famílias que pararam de ter surpresas no caixa do supermercado. É grátis, seguro e fácil de usar.</p>
+            <h2 class="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tightLEADING-TIGHT">Mude a forma como você compra.</h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">Junte-se às famílias que pararam de ter surpresas no caixa do supermercado. É grátis, seguro e fácil de usar.</p>
             <div class="flex justify-center">
-                <a href="https://play.google.com/store/apps/details?id=com.detech.dehousemarket&hl=pt_BR" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 bg-primary text-white px-10 py-5 rounded-2xl hover:bg-primaryDark transition-all duration-300 shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-2">
-                    <i class="fab fa-google-play text-3xl"></i>
+                <a href="https://play.google.com/store/apps/details?id=com.detech.dehousemarket&hl=pt_BR" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-5 bg-primary text-white px-10 py-5 rounded-2xl hover:bg-primaryDark transition-all duration-300 shadow-xl shadow-primary/20 hover:shadow-2xl hover:-translate-y-2 group">
+                    <i class="fab fa-google-play text-4xl"></i>
                     <div class="text-left">
-                        <p class="text-[10px] text-white/80 uppercase tracking-widest font-semibold">Baixar agora no</p>
-                        <p class="text-xl font-bold font-sans">Google Play</p>
+                        <p class="text-[11px] text-white/80 uppercase tracking-widest font-semibold">Baixar agora no</p>
+                        <p class="text-2xl font-bold font-sans">Google Play</p>
                     </div>
                 </a>
             </div>
-            <p class="mt-6 text-sm text-gray-500"><i class="fas fa-lock text-gray-400 mr-1"></i> 100% seguro. Nenhum dado bancário é solicitado.</p>
+            <p class="mt-8 text-sm text-gray-500 flex items-center justify-center gap-2">
+                <i class="fas fa-lock text-gray-400"></i> 100% seguro. Nenhum dado bancário real é solicitado.
+            </p>
         </div>
     </section>
 
-    <footer class="bg-white py-12 border-t border-gray-100">
+    <footer class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex items-center justify-center gap-2 mb-6">
+            <div class="flex items-center justify-center gap-3 mb-6">
                 <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><i class="fas fa-shopping-cart text-white text-sm"></i></div>
-                <span class="text-xl font-black text-gray-900">Dehouse Market</span>
+                <span class="text-xl font-black text-gray-900 tracking-tight uppercase">DEHOUSE MARKET</span>
             </div>
-            <p class="text-gray-500 mb-8 font-medium">Sua inteligência financeira no supermercado.</p>
+            <p class="text-gray-500 mb-10 font-medium">Sua inteligência financeira no supermercado.</p>
             
-            <div class="flex justify-center gap-6 text-gray-400 mb-8">
+            <div class="flex justify-center gap-8 text-gray-400 mb-10">
                 <a href="https://www.instagram.com/dehousemarket?igsh=MXZldGgzM3Q1NjZjeA==" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors duration-300 text-3xl"><i class="fab fa-instagram"></i></a>
             </div>
             
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-gray-400">
+            <div class="border-t border-gray-100 pt-10 flex flex-col md:flex-row justify-center items-center gap-5 text-sm text-gray-400 max-w-4xl mx-auto">
                 <p>© 2026 Dehouse Market. Produzido por Junior e Julia (CEO AARTI ESTUDIO)</p>
-                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline text-gray-200">•</span>
                 <a href="politica-privacidade.html" class="hover:text-primary transition-colors font-medium">Política de Privacidade</a>
             </div>
         </div>
@@ -386,9 +439,13 @@
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 10) {
-                nav.classList.add('shadow-sm');
+                nav.classList.add('shadow-md');
+                nav.classList.add('bg-white');
+                nav.classList.remove('bg-white/80');
             } else {
-                nav.classList.remove('shadow-sm');
+                nav.classList.remove('shadow-md');
+                nav.classList.add('bg-white/80');
+                nav.classList.remove('bg-white');
             }
         });
     </script>
